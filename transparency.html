@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 See How The Magic Works - Transparency Mode</title>
+    <link rel="stylesheet" href="transparency-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header class="glass-card main-header">
+            <h1>🔍 Transparency Mode</h1>
+            <p class="subtitle">See exactly how the Magic Worker Service works!</p>
+            <button class="back-btn" onclick="window.close()">← Back to Main Page</button>
+        </header>
+
+        <div class="explanation-section glass-card">
+            <h2>🧠 How Does This Work?</h2>
+            <p>When you click buttons on the main page, here's what happens behind the scenes:</p>
+            <ol>
+                <li><strong>Request:</strong> Your browser sends a message to our worker service</li>
+                <li><strong>Processing:</strong> The worker service thinks about what to do</li>
+                <li><strong>Response:</strong> The worker service sends back an answer</li>
+                <li><strong>Display:</strong> Your browser shows you the result!</li>
+            </ol>
+        </div>
+
+        <div class="live-demo-section">
+            <h2>🎮 Try It Live!</h2>
+            <p>Click the buttons below and watch what happens in real-time:</p>
+            
+            <div class="demo-controls glass-card">
+                <div class="control-group">
+                    <button class="demo-btn" onclick="demoColorRequest()">🎨 Get Color</button>
+                    <button class="demo-btn" onclick="demoStoryRequest()">📝 Save Story</button>
+                    <button class="demo-btn" onclick="demoTreasureRequest()">🔍 Find Treasure</button>
+                </div>
+                <div class="input-group">
+                    <input type="text" id="demoStoryInput" placeholder="Type your story here..." class="demo-input">
+                </div>
+            </div>
+        </div>
+
+        <div class="transparency-panel glass-card">
+            <h3>📡 Live Request/Response Monitor</h3>
+            <div class="monitor-container">
+                <div class="request-section">
+                    <h4>📤 Outgoing Requests</h4>
+                    <div class="request-log" id="requestLog">
+                        <p class="log-entry">Waiting for requests...</p>
+                    </div>
+                </div>
+                
+                <div class="response-section">
+                    <h4>📥 Incoming Responses</h4>
+                    <div class="response-log" id="responseLog">
+                        <p class="log-entry">Waiting for responses...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="code-section glass-card">
+            <h3>💻 The Code Behind The Magic</h3>
+            <div class="code-tabs">
+                <button class="tab-btn active" onclick="showTab('request')">Request Code</button>
+                <button class="tab-btn" onclick="showTab('service')">Service Code</button>
+                <button class="tab-btn" onclick="showTab('response')">Response Code</button>
+            </div>
+            
+            <div class="code-content">
+                <div id="request-code" class="code-block active">
+                    <pre><code>// When you click "Get Color" button:
+async function testColorEndpoint() {
+    // 1. Show loading state
+    button.innerHTML = 'Getting Color...';
+    
+    // 2. Call the worker service
+    const response = await mockWorkerService.getColors();
+    
+    // 3. Update the display
+    colorPreview.style.backgroundColor = response.color;
+    colorPreview.textContent = response.colorName;
+}</code></pre>
+                </div>
+                
+                <div id="service-code" class="code-block">
+                    <pre><code>// Inside the worker service:
+async getColors() {
+    // 1. Generate request ID
+    const requestId = this.generateRequestId();
+    
+    // 2. Simulate network delay
+    await this.simulateDelay();
+    
+    // 3. Pick a random color
+    const randomColor = this.colors[Math.floor(Math.random() * this.colors.length)];
+    
+    // 4. Return response
+    return {
+        color: randomColor,
+        colorName: this.getColorName(randomColor),
+        requestId: requestId
+    };
+}</code></pre>
+                </div>
+                
+                <div id="response-code" class="code-block">
+                    <pre><code>// The response object:
+{
+    "color": "#ff6b6b",
+    "colorName": "Coral Red",
+    "timestamp": "2024-01-15T10:30:00.000Z",
+    "requestId": 1
+}
+
+// This gets displayed on your screen!</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <div class="educational-section glass-card">
+            <h3>🎓 Learning Points</h3>
+            <div class="learning-grid">
+                <div class="learning-item">
+                    <h4>🌐 HTTP Requests</h4>
+                    <p>When you click a button, your browser sends a message (request) to a server asking for something.</p>
+                </div>
+                <div class="learning-item">
+                    <h4>⏱️ Processing Time</h4>
+                    <p>Servers need time to think and process your request. That's why you see loading animations!</p>
+                </div>
+                <div class="learning-item">
+                    <h4>📦 Data Format</h4>
+                    <p>Servers send back data in a special format called JSON, which is like a digital envelope.</p>
+                </div>
+                <div class="learning-item">
+                    <h4>🔄 Request IDs</h4>
+                    <p>Each request gets a unique number so we can track what's happening and debug problems.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="mock-worker-service.js"></script>
+    <script src="transparency-app.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Worker Service - See How Websites Work!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header class="glass-card main-header">
+            <h1>🌟 Magic Worker Service 🌟</h1>
+            <p class="subtitle">Watch how websites talk to each other!</p>
+        </header>
+
+        <div class="service-overview glass-card">
+            <h2>🔧 What is a Worker Service?</h2>
+            <p>A worker service is like a helpful robot that does tasks for websites. It's like having a magical assistant that can:</p>
+            <ul>
+                <li>📝 Save your drawings and stories</li>
+                <li>🎨 Change colors and make things pretty</li>
+                <li>🔍 Find things you're looking for</li>
+                <li>🎮 Play games with you</li>
+            </ul>
+        </div>
+
+        <div class="endpoints-section">
+            <h2>🎯 Try Our Magic Endpoints!</h2>
+            
+            <div class="endpoint-card glass-card">
+                <h3>🎨 Color Magic</h3>
+                <p>Change colors of things!</p>
+                <div class="endpoint-demo">
+                    <button class="magic-btn" onclick="testColorEndpoint()">Make Colors Magic!</button>
+                    <div class="color-preview" id="colorPreview"></div>
+                </div>
+                <div class="endpoint-info">
+                    <span class="method">GET</span>
+                    <span class="url">/api/colors</span>
+                </div>
+            </div>
+
+            <div class="endpoint-card glass-card">
+                <h3>📝 Story Saver</h3>
+                <p>Save your amazing stories!</p>
+                <div class="endpoint-demo">
+                    <input type="text" id="storyInput" placeholder="Write your story here..." class="story-input">
+                    <button class="magic-btn" onclick="saveStory()">Save My Story!</button>
+                    <div class="story-display" id="storyDisplay"></div>
+                </div>
+                <div class="endpoint-info">
+                    <span class="method">POST</span>
+                    <span class="url">/api/stories</span>
+                </div>
+            </div>
+
+            <div class="endpoint-card glass-card">
+                <h3>🔍 Treasure Finder</h3>
+                <p>Find hidden treasures!</p>
+                <div class="endpoint-demo">
+                    <button class="magic-btn" onclick="findTreasure()">Find Treasure!</button>
+                    <div class="treasure-display" id="treasureDisplay"></div>
+                </div>
+                <div class="endpoint-info">
+                    <span class="method">GET</span>
+                    <span class="url">/api/treasure</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="transparency-section glass-card">
+            <h2>🔍 See What's Happening Inside!</h2>
+            <p>Click the button below to see exactly how our magic worker service works!</p>
+            <button class="transparency-btn" onclick="openTransparencyPage()">
+                👁️ Show Me The Magic!
+            </button>
+        </div>
+
+        <div class="activity-log glass-card">
+            <h3>📊 Activity Log</h3>
+            <div class="log-container" id="activityLog">
+                <p class="log-entry">✨ Welcome to the Magic Worker Service!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="mock-worker-service.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
